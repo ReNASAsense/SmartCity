@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="SmartCityModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="SmartCityModelStoreContainer">
+          <EntitySet Name="Sample" EntityType="SmartCityModel.Store.Sample" store:Type="Tables" Schema="dbo" />
+        </EntityContainer>
+        <EntityType Name="Sample">
+          <Key>
+            <PropertyRef Name="id_measurement" />
+          </Key>
+          <Property Name="id_measurement" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="sample_time" Type="datetime" Nullable="false" />
+          <Property Name="lat" Type="decimal" Scale="8" />
+          <Property Name="lon" Type="decimal" Scale="8" />
+          <Property Name="device_id" Type="int" />
+          <Property Name="temperature" Type="float" />
+          <Property Name="humidity" Type="float" />
+          <Property Name="pressure" Type="float" />
+        </EntityType>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SmartCityModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="SmartCityEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Sample" EntityType="SmartCityModel.Sample" />
+        </EntityContainer>
+        <EntityType Name="Sample">
+          <Key>
+            <PropertyRef Name="id_measurement" />
+          </Key>
+          <Property Type="Int32" Name="id_measurement" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="DateTime" Name="sample_time" Nullable="false" Precision="3" />
+          <Property Type="Decimal" Name="lat" Precision="18" Scale="8" />
+          <Property Type="Decimal" Name="lon" Precision="18" Scale="8" />
+          <Property Type="Int32" Name="device_id" />
+          <Property Type="Double" Name="temperature" />
+          <Property Type="Double" Name="humidity" />
+          <Property Type="Double" Name="pressure" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SmartCityModelStoreContainer" CdmEntityContainer="SmartCityEntities">
+          <EntitySetMapping Name="Sample">
+            <EntityTypeMapping TypeName="SmartCityModel.Sample">
+              <MappingFragment StoreEntitySet="Sample">
+                <ScalarProperty Name="pressure" ColumnName="pressure" />
+                <ScalarProperty Name="humidity" ColumnName="humidity" />
+                <ScalarProperty Name="temperature" ColumnName="temperature" />
+                <ScalarProperty Name="device_id" ColumnName="device_id" />
+                <ScalarProperty Name="lon" ColumnName="lon" />
+                <ScalarProperty Name="lat" ColumnName="lat" />
+                <ScalarProperty Name="sample_time" ColumnName="sample_time" />
+                <ScalarProperty Name="id_measurement" ColumnName="id_measurement" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
