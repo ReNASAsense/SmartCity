@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <setParameter name="IIS Web Application Name" value="Default Web Site/SmartCityServer_deploy" />
+  <setParameter name="SmartCityEntities-Web.config Connection String" value="metadata=res://*/ModelSensorData.csdl|res://*/ModelSensorData.ssdl|res://*/ModelSensorData.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=chemigallego.es;initial catalog=SmartCity;persist security info=True;user id=space;password=space;MultipleActiveResultSets=True;App=EntityFramework&quot;" />
+</parameters>
