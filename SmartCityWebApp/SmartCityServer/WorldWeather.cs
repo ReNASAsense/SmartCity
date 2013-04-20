@@ -45,7 +45,8 @@ namespace TesterApplication
         }
 
         /// <summary>
-        /// Return current weather on given longitude and latitude
+        /// Return current weather on given longitude and latitude,
+        /// if quota exceeded or not found return null;
         /// </summary>
         /// <param name="longitude"></param>
         /// <param name="latitude"></param>
@@ -57,6 +58,8 @@ namespace TesterApplication
             String longitudeStr = String.Format("{0:0.##}", longitude);
             String latitudeStr = String.Format("{0:0.##}", latitude);
             String response = String.Empty;
+            Boolean tempFound = false;
+            Boolean humidityFound = false;
             Dictionary<String, String> parameters = new Dictionary<String, String>();
             parameters.Add("q", String.Format("{0:0.##}", longitude) + "%2C" + String.Format("{0:0.##}", latitude));
             parameters.Add("format", "xml");
@@ -70,14 +73,20 @@ namespace TesterApplication
 
             using (XmlReader reader = XmlReader.Create(new StringReader(response)))
             {
-                reader.ReadToFollowing("temp_C");
-                tempC = reader.ReadInnerXml();
-                reader.ReadToFollowing("humidity");
-                humidity = reader.ReadInnerXml();
-            }
+                if (reader.ReadToFollowing("temp_C"))
+                {
+                    tempC = reader.ReadInnerXml();
+                    tempFound = true;
+                }
 
-            return
-                new Tuple<String, String, String, String>(longitudeStr, latitudeStr, tempC, humidity);
+                if (reader.ReadToFollowing("humidity"))
+                {
+                    humidity = reader.ReadInnerXml();
+                    humidityFound = false;
+                }
+            }
+            return (humidityFound && tempFound) ? 
+                new Tuple<String, String, String, String>(longitudeStr, latitudeStr, tempC, humidity) : null;
         }
     }
 }
