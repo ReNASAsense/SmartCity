@@ -26,5 +26,6 @@ namespace SmartCityServer
         }
     
         public DbSet<Sample> Sample { get; set; }
+        public DbSet<SampledImage> SampledImage { get; set; }
     }
 }

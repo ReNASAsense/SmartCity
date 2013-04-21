@@ -22,5 +22,18 @@ namespace SmartCityServer
         public Nullable<double> temperature { get; set; }
         public Nullable<double> humidity { get; set; }
         public Nullable<double> pressure { get; set; }
+        public Nullable<double> sound { get; set; }
+        public Nullable<double> winddirection { get; set; }
+        public Nullable<double> uv { get; set; }
+        public Nullable<double> xacceleration { get; set; }
+        public Nullable<double> yacceleration { get; set; }
+        public Nullable<double> zacceleration { get; set; }
+        public Nullable<double> xrotation { get; set; }
+        public Nullable<double> yrotation { get; set; }
+        public Nullable<double> zrotation { get; set; }
+        public Nullable<double> xmagneticforce { get; set; }
+        public Nullable<double> ymagneticforce { get; set; }
+        public Nullable<double> zmagneticforce { get; set; }
+        public Nullable<double> accelerationmagnitude { get; set; }
     }
 }

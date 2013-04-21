@@ -5,7 +5,8 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="ebd500489a4546e89bc9c3c8cd0dbb78" Name="Diagram1">
-        <EntityTypeShape EntityType="SmartCityModel.Sample" Width="1.5" PointX="5.125" PointY="2.125" />
+        <EntityTypeShape EntityType="SmartCityModel.Sample" Width="1.5" PointX="5.2884942839334226" PointY="28.65359467112161" />
+        <EntityTypeShape EntityType="SmartCityModel.SampledImage" Width="1.5" PointX="5.0242755957992165" PointY="29.068795634931323" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

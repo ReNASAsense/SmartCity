@@ -7,6 +7,7 @@
     <Schema Namespace="SmartCityModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="SmartCityModelStoreContainer">
           <EntitySet Name="Sample" EntityType="SmartCityModel.Store.Sample" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SampledImage" EntityType="SmartCityModel.Store.SampledImage" store:Type="Tables" Schema="dbo" />
         </EntityContainer>
         <EntityType Name="Sample">
           <Key>
@@ -20,6 +21,28 @@
           <Property Name="temperature" Type="float" />
           <Property Name="humidity" Type="float" />
           <Property Name="pressure" Type="float" />
+          <Property Name="sound" Type="float" />
+          <Property Name="winddirection" Type="float" />
+          <Property Name="uv" Type="float" />
+          <Property Name="xacceleration" Type="float" />
+          <Property Name="yacceleration" Type="float" />
+          <Property Name="zacceleration" Type="float" />
+          <Property Name="xrotation" Type="float" />
+          <Property Name="yrotation" Type="float" />
+          <Property Name="zrotation" Type="float" />
+          <Property Name="xmagneticforce" Type="float" />
+          <Property Name="ymagneticforce" Type="float" />
+          <Property Name="zmagneticforce" Type="float" />
+          <Property Name="accelerationmagnitude" Type="float" />
+        </EntityType>
+        <EntityType Name="SampledImage">
+          <Key>
+            <PropertyRef Name="id_images" />
+          </Key>
+          <Property Name="id_images" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="device_id" Type="int" Nullable="false" />
+          <Property Name="image_timestamp" Type="datetime" Nullable="false" />
+          <Property Name="imagesample" Type="image" Nullable="false" />
         </EntityType>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -27,6 +50,7 @@
       <Schema Namespace="SmartCityModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
         <EntityContainer Name="SmartCityEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Sample" EntityType="SmartCityModel.Sample" />
+          <EntitySet Name="SampledImage" EntityType="SmartCityModel.SampledImage" />
         </EntityContainer>
         <EntityType Name="Sample">
           <Key>
@@ -40,8 +64,30 @@
           <Property Type="Double" Name="temperature" />
           <Property Type="Double" Name="humidity" />
           <Property Type="Double" Name="pressure" />
+          <Property Type="Double" Name="sound" />
+          <Property Type="Double" Name="winddirection" />
+          <Property Type="Double" Name="uv" />
+          <Property Type="Double" Name="xacceleration" />
+          <Property Type="Double" Name="yacceleration" />
+          <Property Type="Double" Name="zacceleration" />
+          <Property Type="Double" Name="xrotation" />
+          <Property Type="Double" Name="yrotation" />
+          <Property Type="Double" Name="zrotation" />
+          <Property Type="Double" Name="xmagneticforce" />
+          <Property Type="Double" Name="ymagneticforce" />
+          <Property Type="Double" Name="zmagneticforce" />
+          <Property Type="Double" Name="accelerationmagnitude" />
         </EntityType>
-      </Schema>
+        <EntityType Name="SampledImage">
+          <Key>
+            <PropertyRef Name="id_images" />
+          </Key>
+          <Property Type="Int32" Name="id_images" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="device_id" Nullable="false" />
+          <Property Type="DateTime" Name="image_timestamp" Nullable="false" Precision="3" />
+          <Property Type="Binary" Name="imagesample" Nullable="false" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -50,6 +96,19 @@
           <EntitySetMapping Name="Sample">
             <EntityTypeMapping TypeName="SmartCityModel.Sample">
               <MappingFragment StoreEntitySet="Sample">
+                <ScalarProperty Name="accelerationmagnitude" ColumnName="accelerationmagnitude" />
+                <ScalarProperty Name="zmagneticforce" ColumnName="zmagneticforce" />
+                <ScalarProperty Name="ymagneticforce" ColumnName="ymagneticforce" />
+                <ScalarProperty Name="xmagneticforce" ColumnName="xmagneticforce" />
+                <ScalarProperty Name="zrotation" ColumnName="zrotation" />
+                <ScalarProperty Name="yrotation" ColumnName="yrotation" />
+                <ScalarProperty Name="xrotation" ColumnName="xrotation" />
+                <ScalarProperty Name="zacceleration" ColumnName="zacceleration" />
+                <ScalarProperty Name="yacceleration" ColumnName="yacceleration" />
+                <ScalarProperty Name="xacceleration" ColumnName="xacceleration" />
+                <ScalarProperty Name="uv" ColumnName="uv" />
+                <ScalarProperty Name="winddirection" ColumnName="winddirection" />
+                <ScalarProperty Name="sound" ColumnName="sound" />
                 <ScalarProperty Name="pressure" ColumnName="pressure" />
                 <ScalarProperty Name="humidity" ColumnName="humidity" />
                 <ScalarProperty Name="temperature" ColumnName="temperature" />
@@ -58,6 +117,16 @@
                 <ScalarProperty Name="lat" ColumnName="lat" />
                 <ScalarProperty Name="sample_time" ColumnName="sample_time" />
                 <ScalarProperty Name="id_measurement" ColumnName="id_measurement" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SampledImage">
+            <EntityTypeMapping TypeName="SmartCityModel.SampledImage">
+              <MappingFragment StoreEntitySet="SampledImage">
+                <ScalarProperty Name="imagesample" ColumnName="imagesample" />
+                <ScalarProperty Name="image_timestamp" ColumnName="image_timestamp" />
+                <ScalarProperty Name="device_id" ColumnName="device_id" />
+                <ScalarProperty Name="id_images" ColumnName="id_images" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

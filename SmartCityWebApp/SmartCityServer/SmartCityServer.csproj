@@ -42,6 +42,9 @@
       <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>.\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
@@ -63,15 +66,33 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="GetComputedImage.aspx" />
     <Content Include="GetData.aspx" />
     <Content Include="GetData2.aspx" />
+    <Content Include="GetDeviceList.aspx" />
+    <Content Include="GetImage.aspx" />
+    <Content Include="images\cloudcover.gif" />
+    <Content Include="images\temphot.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\termcold.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="PutData.aspx" />
+    <Content Include="PutImage.aspx" />
     <Content Include="TestXml.xml">
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GetComputedImage.aspx.cs">
+      <DependentUpon>GetComputedImage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GetComputedImage.aspx.designer.cs">
+      <DependentUpon>GetComputedImage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="GetData.aspx.cs">
       <DependentUpon>GetData.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -86,6 +107,21 @@
     <Compile Include="GetData2.aspx.designer.cs">
       <DependentUpon>GetData2.aspx</DependentUpon>
     </Compile>
+    <Compile Include="GetDeviceList.aspx.cs">
+      <DependentUpon>GetDeviceList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GetDeviceList.aspx.designer.cs">
+      <DependentUpon>GetDeviceList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GetImage.aspx.cs">
+      <DependentUpon>GetImage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GetImage.aspx.designer.cs">
+      <DependentUpon>GetImage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ImageCompute.cs" />
     <Compile Include="ModelSensorData.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -109,9 +145,21 @@
     <Compile Include="PutData.aspx.designer.cs">
       <DependentUpon>PutData.aspx</DependentUpon>
     </Compile>
+    <Compile Include="PutImage.aspx.cs">
+      <DependentUpon>PutImage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PutImage.aspx.designer.cs">
+      <DependentUpon>PutImage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ReverseGeocoding.cs" />
     <Compile Include="Sample.cs">
       <DependentUpon>ModelSensorData.tt</DependentUpon>
     </Compile>
+    <Compile Include="SampledImage.cs">
+      <DependentUpon>ModelSensorData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WorldWeather.cs" />
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="ModelSensorData.edmx">
