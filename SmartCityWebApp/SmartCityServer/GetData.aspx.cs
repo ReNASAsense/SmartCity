@@ -81,29 +81,29 @@ namespace SmartCityServer
                         //bool humset = false;
                         //bool tempset = false;
                         //bool presset = false;
-                        if (item.lat.HasValue & item.lon.HasValue & isonlylast)
-                        {
-                            string lat = item.lat.ToString().Replace(',', '.');
-                            string lon = item.lon.ToString().Replace(',', '.');
-                            CityCountry cc = ReverseGeocoding.GetCityCountry(lat, lon);
-                            bld.AppendLine(String.Format("<Country>{0}</Country>", cc.countryName));
-                            bld.AppendLine(String.Format("<City>{0}</City>", cc.adminName1));
+                        //if (item.lat.HasValue & item.lon.HasValue & isonlylast)
+                        //{
+                        //    string lat = item.lat.ToString().Replace(',', '.');
+                        //    string lon = item.lon.ToString().Replace(',', '.');
+                        //    CityCountry cc = ReverseGeocoding.GetCityCountry(lat, lon);
+                        //    bld.AppendLine(String.Format("<Country>{0}</Country>", cc.countryName));
+                        //    bld.AppendLine(String.Format("<City>{0}</City>", cc.adminName1));
 
-                            WeatherReading ww = WorldWeather.getWeatherAt(lat, lon);
-                            bld.AppendLine(String.Format("<Humidity>{0}</Humidity>", ww.humidity.Replace(',', '.')));
-                            bld.AppendLine(String.Format("<Temperature>{0}</Temperature>", ww.tempC.Replace(',', '.')));
-                            bld.AppendLine(String.Format("<Windspeed>{0}</Windspeed>", ww.windspeed.Replace(',', '.')));
-                            bld.AppendLine(String.Format("<Winddirection>{0}</Winddirection>", ww.winddirection.Replace(',', '.')));
-                            bld.AppendLine(String.Format("<Visibility>{0}</Visibility>", ww.visibility.Replace(',', '.')));
-                            bld.AppendLine(String.Format("<Pressure>{0}</Pressure>", ww.pressure.Replace(',', '.')));
-                            bld.AppendLine(String.Format("<Cloudcover>{0}</Cloudcover>", ww.cloudcover.Replace(',', '.')));
-                        }
-                        else
-                        {
+                        //    WeatherReading ww = WorldWeather.getWeatherAt(lat, lon);
+                        //    bld.AppendLine(String.Format("<Humidity>{0}</Humidity>", ww.humidity.Replace(',', '.')));
+                        //    bld.AppendLine(String.Format("<Temperature>{0}</Temperature>", ww.tempC.Replace(',', '.')));
+                        //    bld.AppendLine(String.Format("<Windspeed>{0}</Windspeed>", ww.windspeed.Replace(',', '.')));
+                        //    bld.AppendLine(String.Format("<Winddirection>{0}</Winddirection>", ww.winddirection.Replace(',', '.')));
+                        //    bld.AppendLine(String.Format("<Visibility>{0}</Visibility>", ww.visibility.Replace(',', '.')));
+                        //    bld.AppendLine(String.Format("<Pressure>{0}</Pressure>", ww.pressure.Replace(',', '.')));
+                        //    bld.AppendLine(String.Format("<Cloudcover>{0}</Cloudcover>", ww.cloudcover.Replace(',', '.')));
+                        //}
+                        //else
+                        //{
                             bld.AppendLine(String.Format(numFormat, "<humidity>{0}</humidity>", item.humidity));
                             bld.AppendLine(String.Format(numFormat, "<temperature>{0}</temperature>", item.temperature));
                             bld.AppendLine(String.Format(numFormat, "<pressure>{0}</pressure>", item.pressure));
-                        }
+                        //}
                         bld.AppendLine(String.Format(numFormat, "<sound>{0}</sound>", item.sound));
                         bld.AppendLine(String.Format(numFormat, "<uv>{0}</uv>", item.uv));
                         bld.AppendLine(String.Format(numFormat, "<xacceleration>{0}</xacceleration>", item.xacceleration));

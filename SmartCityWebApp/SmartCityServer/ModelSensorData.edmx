@@ -34,6 +34,8 @@
           <Property Name="ymagneticforce" Type="float" />
           <Property Name="zmagneticforce" Type="float" />
           <Property Name="accelerationmagnitude" Type="float" />
+          <Property Name="battery" Type="float" />
+          <Property Name="wind" Type="float" />
         </EntityType>
         <EntityType Name="SampledImage">
           <Key>
@@ -77,6 +79,8 @@
           <Property Type="Double" Name="ymagneticforce" />
           <Property Type="Double" Name="zmagneticforce" />
           <Property Type="Double" Name="accelerationmagnitude" />
+          <Property Type="Double" Name="battery" />
+          <Property Type="Double" Name="wind" />
         </EntityType>
         <EntityType Name="SampledImage">
           <Key>
@@ -96,6 +100,8 @@
           <EntitySetMapping Name="Sample">
             <EntityTypeMapping TypeName="SmartCityModel.Sample">
               <MappingFragment StoreEntitySet="Sample">
+                <ScalarProperty Name="wind" ColumnName="wind" />
+                <ScalarProperty Name="battery" ColumnName="battery" />
                 <ScalarProperty Name="accelerationmagnitude" ColumnName="accelerationmagnitude" />
                 <ScalarProperty Name="zmagneticforce" ColumnName="zmagneticforce" />
                 <ScalarProperty Name="ymagneticforce" ColumnName="ymagneticforce" />

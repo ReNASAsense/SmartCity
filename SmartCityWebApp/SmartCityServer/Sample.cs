@@ -35,5 +35,7 @@ namespace SmartCityServer
         public Nullable<double> ymagneticforce { get; set; }
         public Nullable<double> zmagneticforce { get; set; }
         public Nullable<double> accelerationmagnitude { get; set; }
+        public Nullable<double> battery { get; set; }
+        public Nullable<double> wind { get; set; }
     }
 }

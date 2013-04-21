@@ -80,6 +80,7 @@
     </Content>
     <Content Include="PutData.aspx" />
     <Content Include="PutImage.aspx" />
+    <Content Include="sqldbscripts.txt" />
     <Content Include="TestXml.xml">
       <SubType>Designer</SubType>
     </Content>

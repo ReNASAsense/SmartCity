@@ -106,6 +106,14 @@ namespace SmartCityServer
                     {
                         newSample.accelerationmagnitude = Convert.ToDouble(xmldoc["Measurements"]["Measurement"]["accelerationmagnitude"].InnerText.ToString().Replace(',', '.'), numFormat);
                     }
+                    if (xmldoc["Measurements"]["Measurement"].GetElementsByTagName("battery").Count > 0)
+                    {
+                        newSample.battery = Convert.ToDouble(xmldoc["Measurements"]["Measurement"]["battery"].InnerText.ToString().Replace(',', '.'), numFormat);
+                    }
+                    if (xmldoc["Measurements"]["Measurement"].GetElementsByTagName("wind").Count > 0)
+                    {
+                        newSample.wind = Convert.ToDouble(xmldoc["Measurements"]["Measurement"]["wind"].InnerText.ToString().Replace(',', '.'), numFormat);
+                    }
                     ctx.Sample.Add(newSample);
                     ctx.SaveChanges();
                 }
