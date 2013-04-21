@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Measurements>
+  <Measurement>
+    <id>1</id>
+    <deviceId>122</deviceId>
+    <timestamp>2012-10-12 16:45:48</timestamp>
+    <longitude>33.2</longitude>
+    <latitude>24.5</latitude>
+    <humidity>15</humidity>
+    <temprature>20</temprature>
+  </Measurement>
+  <Measurement>
+    <id>2</id>
+    <deviceId>124</deviceId>
+    <timestamp>2012-10-12 15:40:20</timestamp>
+    <longitude>30.9</longitude>
+    <latitude>23.1</latitude>
+    <humidity>16</humidity>
+    <temprature>21</temprature>
+  </Measurement>
+  <Measurement>
+    <id>3</id>
+    <deviceId>120</deviceId>
+    <timestamp>2012-10-12 16:55:13</timestamp>
+    <longitude>36.6</longitude>
+    <latitude>21.2</latitude>
+    <humidity>15</humidity>
+    <temprature>20</temprature>
+  </Measurement>
+</Measurements>
